@@ -9,7 +9,7 @@ int main() {
         printf("Not running as PID 1, dying...\n");
         return 1;
     } else { 
-        printf("InitRC v0.1 -- Booting up!\n");
+        printf("InitRC v0.1.1 -- Booting up!\n");
         printf("Mounting filesystems... ");
         system("/usr/bin/mount -t procfs proc /proc");
         system("/usr/bin/mount -t devtmpfs dev /dev");
@@ -19,7 +19,9 @@ int main() {
         printf("Running /etc/rc... ");
         system("/usr/bin/sh -c /etc/rc");
         printf("Done!\n");
-        sleep(0xFFFFFF);
+        while (0 == 0) {
+            sleep(0xFFFFFF);
+        }
     }
 }
     
