@@ -2,7 +2,7 @@
 A minimal Linux init system, made in C
 
 ## Installation
-To install InitRC, just clone this repo, place the `InitRCv0.1-<arch>.bin` file from the bin folder (with arch being your CPU Architecture) into /bin, or compile it yourself (see *Compiling*)
+To install InitRC, just clone this repo, place the `InitRCv0.2/3-<arch>.bin` file from the bin folder (with arch being your CPU Architecture) into /bin, or compile it yourself (see *Compiling*)
 
 Also, make `/etc/rc`, as InitRC will execute that script when it boots.
 
@@ -10,7 +10,7 @@ Here's an example rc file:
 
 ``` sh
 #!/bin/bash
-# InitRC v0.1 RC file
+# InitRC v0.3 RC file
 /bin/sh
 ```
 

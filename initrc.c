@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <time.h>
+#include <unistd.h>
 
 int main() {
     int selfpid=getpid();
@@ -19,7 +20,7 @@ int main() {
         printf("Running /etc/rc... ");
         system("/usr/bin/sh -c /etc/rc");
         printf("Done!\n");
-        while (0 == 0) {
+        while (1) {
             sleep(0xFFFFFF);
         }
     }
