@@ -2,8 +2,7 @@
 A minimal Linux init system, made in C
 
 ## Installation
-To install InitRC, just clone this repo, place the `InitRCv0.2/3-<arch>.bin` file from the bin folder (with arch being your CPU Architecture) into /bin, or compile it yourself (see *Compiling*)
-
+To install InitRC, just compile it into /bin. The only depend is a C compiler and the linux kernel headers.
 Also, make `/etc/rc`, as InitRC will execute that script when it boots.
 
 Here's an example rc file:
@@ -15,6 +14,7 @@ Here's an example rc file:
 ```
 
 **Please make your own rc file, as this one doesnt setup anything other than a shell**
+*and remember, when the RC script dies (aka tty1 kills itself), the system gets shutdown!*
 
 ## Compiling
 To compile InitRC from source, just run these commands:
