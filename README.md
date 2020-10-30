@@ -1,8 +1,27 @@
 # InitRC
-A minimal Linux init system, made in C
+A minimal Linux init system, made in C.
 
-## Installation
-To install InitRC, just compile it into /bin. The only depend is a C compiler and the linux kernel headers.
+## Compiling and installation
+To compile InitRC from source and install it, first make sure you have a C compiler and the Linux kernel headers. Then run either
+
+``` sh
+make
+sudo make install
+``` 
+
+to do it with `make` 
+
+or
+
+``` sh
+sudo mv /bin/init /bin/init.old
+sudo cc initrc.c -o /bin/init --verbose
+```
+
+if you want to compile it manually.
+
+## Bootup script
+
 Also, make `/etc/rc`, as InitRC will execute that script when it boots.
 
 Here's an example rc file:
@@ -13,18 +32,11 @@ Here's an example rc file:
 /bin/sh
 ```
 
-**Please make your own rc file, as this one doesnt setup anything other than a shell**
-*and remember, when the RC script dies (aka tty1 kills itself), the system gets shutdown!*
+**Please make your own rc file, as this one doesnt setup anything other than a shell.**
 
-## Compiling
-To compile InitRC from source, just run these commands:
-
-``` sh
-cc initrc.c -o ./bin/init --verbose
-# thats all lmao
-```
+*And remember, when the RC script dies (aka tty1 kills itself), the system gets shutdown!*
 
 ## Configuring
-To configure InitRC, you **dont.**
+To configure InitRC, you **don't.**
 
 :wq
