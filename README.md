@@ -9,9 +9,11 @@ make
 sudo make install
 ``` 
 
+to do it with `make` 
+
 or
 
-```
+``` sh
 sudo mv /bin/init /bin/init.old
 sudo cc initrc.c -o /bin/init --verbose
 ```
