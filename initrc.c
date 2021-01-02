@@ -18,9 +18,15 @@ int main() {
         system("/usr/bin/mount -t sysfs sys /sys");
         system("/usr/bin/mount -t tmpfs tmp /tmp");
         printf("done!\n");
-        printf("Running /etc/rc... ");
-        system("/usr/bin/sh -c /etc/rc");
+        printf("Running mainrc... ");
+        system("/usr/bin/sh -c /etc/initrc/rc");
+        printf("Running networkrc... ");
+        system("/usr/bin/sh -c /etc/initrc/networkrc");
+        printf("Running user scripts... ");
+        system("/usr/bin/sh -c /etc/initrc/user");
+        printf("done!\n");
         printf("TTY1 killed, shutting down...\n");
+    system("/usr/bin/sh -c /etc/initrc/shutdown");
 	sync();
 	reboot(LINUX_REBOOT_MAGIC1,
 	       LINUX_REBOOT_MAGIC2,

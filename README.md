@@ -15,28 +15,32 @@ or
 
 ``` sh
 sudo mv /bin/init /bin/init.old
-sudo cc initrc.c -o /bin/init --verbose
+sudo cc initrc.c -o /bin/init -O3
 ```
 
 if you want to compile it manually.
 
-## Bootup script
+## Bootup
 
-Also, make `/etc/rc`, as InitRC will execute that script when it boots.
+On bootup, initrc will first mount the pseudofilesystems, then run `/etc/initrc/rc`, then `/etc/initrc/networkrc`, then run `/etc/initrc/user`. After killing TTY1, InitRC will run `/etc/initrc/shutdown` and then poweroff the machine.
 
-Here's an example rc file:
+`initrc/rc` is meant to start essenial services, such as the dbus, set the time, hostname, etc.
+
+`initrc/networkrc` is meant to, well, start the network.
+
+`initrc/user` is meant to run user-created scripts in the `initrc` directory that arent essential to the system bootup, so it gets ran as last.
+
+`initrc/shutdown` is for stopping processes and preparing to shutdown. As an example, you can use this script to stop sshd before shutting down.
+
+InitRC doesnt have default rc files, you have to make those yourself. 
+
+## User Scripts
+
+User scripts are a new feature in initrc v0.5. First, create your userscripts in `/etc/initrc/`, then in `/etc/initrc/user` add a line that starts it, for example:
 
 ``` sh
 #!/bin/bash
-# InitRC v0.3 RC file
-/bin/sh
+sh -c "/etc/initrc/userscipt-X" # you dont have to call it userscript-X but this is an example
+exit
 ```
 
-**Please make your own rc file, as this one doesnt setup anything other than a shell.**
-
-*And remember, when the RC script dies (aka tty1 kills itself), the system gets shutdown!*
-
-## Configuring
-To configure InitRC, you **don't.**
-
-:wq
