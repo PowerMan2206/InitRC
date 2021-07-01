@@ -1,7 +1,7 @@
 # InitRC
 A minimal Linux init system, made in C.
 
-[Made by Breadtard](https://github.com/breadtard/initrc) who deleted the repo, then his account, then recreated both for some reason. All development is going on there. Give him a star or something.
+Made by [breadtard](https://github.com/breadtard) who deleted the repo, then his account, then recreated both for some reason. The project has been discontinued and the repo deleted again. This is just here as an archive
 
 ## Compiling and installation
 To compile InitRC from source and install it, first make sure you have a C compiler and the Linux kernel headers. Then run either
